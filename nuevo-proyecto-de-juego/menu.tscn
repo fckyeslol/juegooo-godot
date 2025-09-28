@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8ixks6irxc7k"]
+
+[ext_resource type="Texture2D" uid="uid://7d1l7ffb7jcs" path="res://Gemini_Generated_Image_vjv22vjv22vjv22v.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://bjl4sttxjwyw7" path="res://menu.gd" id="1_mae5d"]
+[ext_resource type="FontFile" uid="uid://do5rfbhiiow3h" path="res://Pixeboy-z8XGD.ttf" id="2_ouk20"]
+
+[node name="fuck" type="Node2D"]
+script = ExtResource("1_mae5d")
+
+[node name="fondo menu" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="fondo menu"]
+position = Vector2(576.00006, 323)
+scale = Vector2(0.896875, 0.805)
+texture = ExtResource("1_lti8b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 392.0
+offset_top = 332.0
+offset_right = 729.0
+offset_bottom = 518.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 60
+text = "JUGAR"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ouk20")
+theme_override_font_sizes/font_size = 60
+text = "SALIR"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
