@@ -1,11 +1,18 @@
 extends CharacterBody2D
 
-var direction: float =0.0
-var speed: float= 1000.0
+@export var speed = 200
+@onready var anim_sprite = $AnimatedSprite2D
 
-func _ready():
-	rotation=direction
+func get_input():
 	
+	look_at(get_global_mouse_position())
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction * speed
+	if velocity != Vector2.ZERO:
+		anim_sprite.play("default")
+	else:
+		anim_sprite.stop()
+
 func _physics_process(delta):
-	velocity= Vector2(speed,0).rotated(direction)
+	get_input()
 	move_and_slide()
