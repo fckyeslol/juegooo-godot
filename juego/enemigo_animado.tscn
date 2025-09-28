@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://bfnv68rnimf01"]
+
+[ext_resource type="Script" uid="uid://ctqciifnt6ttw" path="res://enemigo_animado.gd" id="1_gtsqg"]
+[ext_resource type="Texture2D" uid="uid://5r1uymgkobpb" path="res://image-removebg-preview.png" id="2_ssixa"]
+[ext_resource type="Texture2D" uid="uid://bxutyn2o3uamt" path="res://image-removebg-preview (1).png" id="3_4hmvv"]
+[ext_resource type="Texture2D" uid="uid://b22403sjb7vlm" path="res://image-removebg-preview (2).png" id="4_r5l5n"]
+[ext_resource type="Texture2D" uid="uid://dcxcsoxlaa5dq" path="res://image-removebg-preview (3).png" id="5_t611k"]
+[ext_resource type="Texture2D" uid="uid://b12tggmv221ib" path="res://image-removebg-preview (4).png" id="6_cpps1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdfra"]
+radius = 26.0
+height = 74.0
+
+[sub_resource type="Animation" id="Animation_j0cam"]
+resource_name = "atacar"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ssixa"), ExtResource("3_4hmvv"), ExtResource("4_r5l5n"), ExtResource("5_t611k"), ExtResource("6_cpps1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1), Vector2(-4, -3), Vector2(8, 29)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-22, -58), Vector2(-20, -56), Vector2(-27, -64), Vector2(-32, -75), Vector2(-35, -116)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gcbgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ssixa")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-22, -58)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r26q7"]
+_data = {
+&"RESET": SubResource("Animation_gcbgc"),
+&"atacar": SubResource("Animation_j0cam")
+}
+
+[node name="enemigo animado" type="CharacterBody2D"]
+script = ExtResource("1_gtsqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_tdfra")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-22, -58)
+texture = ExtResource("2_ssixa")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r26q7")
+}
