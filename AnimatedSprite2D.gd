@@ -41,3 +41,4 @@ func shoot() -> void:
 		get_parent().add_child(bullet)
 		bullet.global_position = global_position
 		bullet.rotation = rotation
+		
