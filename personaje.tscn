@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://b54fiaetk82d1"]
+
+[ext_resource type="Script" uid="uid://dslqt3ihuqxxc" path="res://character_body_2d.gd" id="1_f8plh"]
+[ext_resource type="Texture2D" uid="uid://sten4qev7xe3" path="res://personajes/sprite_shootgun-removebg-preview (2)/sprite_0.png" id="2_pqm5q"]
+[ext_resource type="Texture2D" uid="uid://dq8hk1ffdi4gq" path="res://personajes/sprite_shootgun-removebg-preview (2)/sprite_1.png" id="3_2vb47"]
+[ext_resource type="Texture2D" uid="uid://bgmt68otqmxr1" path="res://personajes/sprite_shootgun-removebg-preview (2)/sprite_2.png" id="4_xeorn"]
+[ext_resource type="Texture2D" uid="uid://cv68mf83xf1du" path="res://personajes/sprite_shootgun-removebg-preview (2)/sprite_5.png" id="5_chw5a"]
+[ext_resource type="Texture2D" uid="uid://bhrxt5mseyyjn" path="res://personajes/sprite_shootgun-removebg-preview (2)/sprite_3.png" id="6_wdwyh"]
+[ext_resource type="Texture2D" uid="uid://dku1csca7vgtv" path="res://personajes/sprite_shootgun-removebg-preview (2)/sprite_4.png" id="7_h755h"]
+[ext_resource type="Texture2D" uid="uid://co0yg81s5lenk" path="res://personajes/sprite_shootgun-removebg-preview (2)/sprite_6.png" id="8_pyv6t"]
+[ext_resource type="Script" uid="uid://b3mygl8nsvb4" path="res://camera_2d.gd" id="9_wyluk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8vmr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pqm5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2vb47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xeorn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_chw5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wdwyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h755h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pyv6t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vopn2"]
+radius = 18.0
+height = 41.2285
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_f8plh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(40.00002, 18.556583)
+scale = Vector2(0.644068, 0.964341)
+sprite_frames = SubResource("SpriteFrames_n8vmr")
+speed_scale = 0.64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2)
+rotation = 0.38755
+shape = SubResource("CapsuleShape2D_vopn2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(3, 3)
+script = ExtResource("9_wyluk")

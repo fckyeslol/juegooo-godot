@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp5w6cqr07mts"]
+
+[ext_resource type="Script" uid="uid://dslqt3ihuqxxc" path="res://character_body_2d.gd" id="1_67cbb"]
+[ext_resource type="Texture2D" uid="uid://cubbjf3djw3yg" path="res://personajes/image-removebg-preview (1).png" id="2_fbr4n"]
+[ext_resource type="Texture2D" uid="uid://cnguuadrta0qo" path="res://personajes/image-removebg-preview (2).png" id="3_ydloa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bp2og"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fbr4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ydloa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhfxf"]
+radius = 22.0
+height = 148.84615
+
+[node name="Disparando" type="CharacterBody2D"]
+script = ExtResource("1_67cbb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bp2og")
+frame = 1
+frame_progress = 0.50735956
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-52.000004, 1.999999)
+rotation = 1.781698
+shape = SubResource("CapsuleShape2D_qhfxf")
