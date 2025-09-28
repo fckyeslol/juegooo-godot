@@ -1,0 +1,135 @@
+[gd_scene load_steps=21 format=3 uid="uid://cqflxbpym887v"]
+
+[ext_resource type="Script" uid="uid://ctqciifnt6ttw" path="res://enemigo_animado.gd" id="1_gtsqg"]
+[ext_resource type="Texture2D" uid="uid://buy1yxknvwx6n" path="res://walk sprite 2.png" id="2_r5l5n"]
+[ext_resource type="Texture2D" uid="uid://5r1uymgkobpb" path="res://image-removebg-preview.png" id="2_ssixa"]
+[ext_resource type="Texture2D" uid="uid://bxutyn2o3uamt" path="res://image-removebg-preview (1).png" id="3_4hmvv"]
+[ext_resource type="Texture2D" uid="uid://b22403sjb7vlm" path="res://image-removebg-preview (2).png" id="4_r5l5n"]
+[ext_resource type="Texture2D" uid="uid://dcxcsoxlaa5dq" path="res://image-removebg-preview (3).png" id="5_t611k"]
+[ext_resource type="Texture2D" uid="uid://b12tggmv221ib" path="res://image-removebg-preview (4).png" id="6_cpps1"]
+[ext_resource type="Texture2D" uid="uid://2rskehktb86l" path="res://enemigo/image-removebg-preview (10).png" id="7_4atse"]
+[ext_resource type="Texture2D" uid="uid://cm03p7qqhvb8r" path="res://enemigo/image-removebg-preview (4).png" id="8_gcbgc"]
+[ext_resource type="Texture2D" uid="uid://cmn4fe5iaby3b" path="res://8d85948f8aae2a285ebd77f5b8568f33 (1)l.png" id="8_t611k"]
+[ext_resource type="Texture2D" uid="uid://uy4y78flbuns" path="res://8d85948f8aae2a285ebd77f5b8568fe33 (1).png" id="9_cpps1"]
+[ext_resource type="Texture2D" uid="uid://br1qa44x0lvbv" path="res://enemigo/image-removebg-preview (5).png" id="9_r26q7"]
+[ext_resource type="Texture2D" uid="uid://du2jpinot4pls" path="res://enemigo/image-removebg-preview (6).png" id="10_cexva"]
+[ext_resource type="Texture2D" uid="uid://b8m4hexckqfvq" path="res://enemigo/image-removebg-preview (7).png" id="11_4atse"]
+[ext_resource type="Texture2D" uid="uid://cf07h5t51hwhu" path="res://enemigo/image-removebg-preview (8).png" id="12_40btw"]
+[ext_resource type="PackedScene" uid="uid://chas25s0b7lac" path="res://barra de vida/barra de vida.tscn" id="15_r26q7"]
+[ext_resource type="Script" uid="uid://bv8vf5o3qfiay" path="res://healthcomp.gd" id="16_cexva"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5l5n"]
+radius = 18.0
+height = 36.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssixa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4hmvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r5l5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t611k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cpps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ssixa")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4atse")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_gcbgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_r26q7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cexva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gcbgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4atse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_40btw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_cpps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_t611k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r5l5n")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r5l5n"]
+radius = 46.010868
+
+[node name="enemigo animado" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(-1, 0)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_gtsqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_r5l5n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.9999981, 2)
+scale = Vector2(0.7826126, 0.7340935)
+sprite_frames = SubResource("SpriteFrames_ssixa")
+animation = &"dead"
+autoplay = "walk"
+frame_progress = 0.8532148
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+debug_enabled = true
+debug_use_custom = true
+
+[node name="attackarea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackarea"]
+shape = SubResource("CircleShape2D_r5l5n")
+
+[node name="healthcomp" type="Node2D" parent="." node_paths=PackedStringArray("barra")]
+script = ExtResource("16_cexva")
+barra = NodePath("BarraDeVida")
+
+[node name="BarraDeVida" parent="healthcomp" instance=ExtResource("15_r26q7")]
+offset_left = -35.0
+offset_top = -48.0
+offset_right = 41.0
+offset_bottom = -40.0

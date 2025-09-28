@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://e7wt8ip8bet2"]
+
+[node name="barra personaje" type="ProgressBar"]
+offset_left = 42.0
+offset_right = 211.0
+offset_bottom = 27.0
+show_percentage = false
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Timer" type="Timer" parent="."]

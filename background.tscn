@@ -1,7 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://bbccgobfahhc"]
+[gd_scene load_steps=47 format=3 uid="uid://bbccgobfahhc"]
 
 [ext_resource type="Texture2D" uid="uid://u57ek3rxun8g" path="res://escenas/WhatsApp Image 2025-09-27 at 16.01.40_c9c5e2f3.jpg" id="1_i7s6n"]
 [ext_resource type="PackedScene" uid="uid://b54fiaetk82d1" path="res://personaje.tscn" id="2_i7s6n"]
+[ext_resource type="PackedScene" uid="uid://dkraswf4uxblp" path="res://enemigo_animado_2.tscn" id="3_xehqc"]
+[ext_resource type="AudioStream" uid="uid://47e14dqppqpu" path="res://music-in-game (mp3cut.net).mp3" id="4_splo0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8u6ia"]
 size = Vector2(14, 131)
@@ -46,7 +48,7 @@ size = Vector2(15.5, 159.5)
 size = Vector2(14.5, 522.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0kr8"]
-size = Vector2(15.5, 56)
+size = Vector2(15.5, 53)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4o0g"]
 size = Vector2(15, 24)
@@ -64,7 +66,7 @@ radius = 13.1529
 size = Vector2(93, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ultoj"]
-size = Vector2(16, 99.5)
+size = Vector2(16, 97)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lq323"]
 size = Vector2(28.25, 47.875)
@@ -85,7 +87,7 @@ size = Vector2(16, 60.75)
 size = Vector2(16.9375, 85.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uli70"]
-size = Vector2(15, 31.5)
+size = Vector2(15, 27.500015)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7l80j"]
 size = Vector2(53, 14)
@@ -115,7 +117,7 @@ size = Vector2(40, 33.5)
 size = Vector2(39, 134)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvthy"]
-size = Vector2(14, 84)
+size = Vector2(14, 79)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7i7dc"]
 radius = 16.4924
@@ -124,7 +126,12 @@ radius = 16.4924
 size = Vector2(222, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_splo0"]
-size = Vector2(176.59166, 25.234634)
+size = Vector2(175.01886, 25.234634)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xehqc"]
+vertices = PackedVector2Array(374.07813, 145.10938, 662.02344, 140.65625, 660.0078, 152.57813, 610.0469, 154.24219, -459.1797, 171.38281, -462.5625, 150.03125, -357.5, 150.03125, 196.79688, -339.35938, 194.36719, -372.5703, 253.5, -367.72656, 255.90625, -359.17188, 305.28906, 145.20313, 326.27344, 142.07031, 326.27344, 222.0625, 659.2031, 388.3828, 660.4297, 405.14844, 374.09375, 400.6875, 615.89844, 386.78125, -284.9375, 18.109375, -469.8828, 20.726563, -517.78906, 17.742188, -513.53906, -12.4375, -496.78125, -79.109375, -582.3125, -7.5390625, -583.35156, -79.109375, 656.03906, -132.42188, 373.34375, -129.4375, 377.35156, -278.4375, 660.97656, -368.67188, 376.75, -367.1875, 375.42188, -327.35156, 325.0078, -281.02344, 328.60938, -327.35156, 320.70313, 274.84375, 323.3672, 402.0625, -235.38281, 397.46094, -243.35938, 32.632813, 370.07813, 274.84375, 371.35938, 227.6875, -521.8281, 235.57813, -520.52344, 395.60156, -692.02344, 392.7578, -692.02344, 150.10938, -518.28906, 151.5625, -507.8672, 194.00781, -468.46875, 222.90625, -287.92188, 288.25, -287.35938, 401.97656, -465.7422, 399.10938, -319.40625, 140.71875, -288.60938, 144.20313, -690.7578, -133.78906, -691.9297, -271.5625, -523.21094, -269.97656, -501.29688, -127.46094, -523.21094, -347.35156, -688, -347.35156, -688, -367.28125, -287.07813, -373.35156, -285.75, -316.21875, 323.52344, -76.11719, 538.27344, 59.453125, 536.96875, 94.8125, 303.07813, 90.03125, 659.8672, -69.74219, 659.8672, 10.8828125, 579.15625, 12.4765625, -243.71094, -316.21875, -241.02344, -368.7578, 145.89063, -370.28125, 154.40625, -328.15625, 580.53125, 54.726563, 263.9297, -343.3125, 310.4922, -354.35938, 315.0078, -367.78906, 324.46875, -366.60938, -456.65625, 84.96094, -463.14063, 56.757813, -290.78906, 92.890625, -308.39844, 98.88281, -355.3828, 99.609375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(11, 12, 13), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 21, 22), PackedInt32Array(21, 23, 24, 22), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(29, 28, 27, 30), PackedInt32Array(30, 27, 31, 32), PackedInt32Array(33, 34, 35, 36), PackedInt32Array(0, 3, 17, 16, 37, 38), PackedInt32Array(39, 40, 41, 42), PackedInt32Array(39, 42, 43, 44), PackedInt32Array(45, 39, 44, 4, 6), PackedInt32Array(46, 47, 48, 45), PackedInt32Array(49, 50, 46, 45, 6), PackedInt32Array(51, 52, 53, 54), PackedInt32Array(55, 56, 57, 58), PackedInt32Array(54, 53, 55, 58, 59, 18), PackedInt32Array(60, 61, 62, 63, 36), PackedInt32Array(60, 64, 65, 66), PackedInt32Array(38, 37, 33, 13), PackedInt32Array(13, 33, 36, 11), PackedInt32Array(63, 11, 36), PackedInt32Array(67, 68, 69, 70, 36), PackedInt32Array(66, 71, 61, 60), PackedInt32Array(7, 10, 72, 36), PackedInt32Array(31, 60, 36, 72), PackedInt32Array(73, 74, 75, 32), PackedInt32Array(72, 73, 32, 31), PackedInt32Array(70, 7, 36), PackedInt32Array(67, 36, 18, 59), PackedInt32Array(22, 54, 18), PackedInt32Array(76, 77, 19, 18, 78, 79, 80), PackedInt32Array(80, 79, 49, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(361.7271, 216.41644, 336.27228, 213.23389, 336.27228, 130.48639, 314.8366, 133.669, 313.4969, 100.25177, 546.6099, 105.025635, 547.94965, 68.42578, 590.821, 63.651917, 589.48126, 22.278198, 669.86505, 20.68689, 669.86505, -79.56488, 333.59283, -85.93005, 334.93256, -270.52057, 367.08612, -268.92926, 363.06683, -119.34729, 665.8459, -122.52991, 671.2048, -378.7288, 367.08612, -377.1375, 365.7464, -337.35504, 337.612, -337.35504, 333.59283, -375.5462, 308.138, -378.7288, 302.779, -362.81583, 269.28583, -354.8593, 265.26654, -362.81583, 261.24738, -377.1375, 183.54303, -383.5027, 186.22253, -346.90283, 162.10736, -340.53766, 154.06897, -380.3201, -250.52954, -378.7288, -253.20898, -326.21597, -275.98438, -326.21597, -277.32413, -383.5027, -697.9994, -377.1375, -697.9994, -337.35504, -533.2126, -337.35504, -533.2126, -280.06836, -702.01855, -281.65967, -700.67883, -124.121185, -510.43716, -117.75601, -507.7577, -89.11264, -593.5004, -89.11264, -592.1607, 3.1826172, -525.1742, -1.5913086, -529.19336, 27.052063, -478.28363, 30.23468, -472.9247, 58.87799, -464.88635, 93.886536, -365.7463, 108.20825, -367.08603, 140.03418, -474.26447, 140.03418, -470.24527, 165.49493, -501.05905, 179.81665, -510.43716, 141.62549, -702.01855, 140.03418, -702.01855, 402.59827, -510.43716, 405.78088, -511.77692, 243.4685, -478.28363, 235.51202, -475.6042, 408.96344, -277.32413, 412.14606, -277.92383, 288.20343, -278.66385, 135.26031, -306.7982, 132.0777, -300.09952, 106.61694, -281.34332, 100.25177, -275.98438, 31.825989, -253.20898, 39.78247, -245.1706, 407.3722, 333.59283, 412.14606, 330.9134, 284.8423, 360.3874, 284.8423, 364.40668, 410.55475, 671.2048, 415.32867, 668.5253, 378.72882, 625.654, 377.1375, 620.2951, 163.90363, 668.5253, 162.31238, 673.88434, 130.48639, 364.40668, 135.26031)])
 
 [node name="main" type="Node2D"]
 
@@ -205,7 +212,7 @@ scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_h3jlt")
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="background/StaticBody2D"]
-position = Vector2(-494.02548, 286.43353)
+position = Vector2(-494.02548, 284.0467)
 scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_f0kr8")
 
@@ -235,7 +242,7 @@ scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_q322y")
 
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="background/StaticBody2D"]
-position = Vector2(346.99017, -192.14917)
+position = Vector2(346.99017, -190.16003)
 scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_ultoj")
 one_way_collision = true
@@ -271,7 +278,7 @@ scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_tod30")
 
 [node name="CollisionShape2D29" type="CollisionShape2D" parent="background/StaticBody2D"]
-position = Vector2(172.15533, -223.97513)
+position = Vector2(172.15533, -227.15771)
 scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_uli70")
 
@@ -326,7 +333,7 @@ scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_ap01x")
 
 [node name="CollisionShape2D40" type="CollisionShape2D" parent="background/StaticBody2D"]
-position = Vector2(-261.24734, -391.45917)
+position = Vector2(-265.26654, -394.64175)
 scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_xvthy")
 
@@ -341,9 +348,23 @@ scale = Vector2(1.3397301, 1.5912975)
 shape = SubResource("RectangleShape2D_lu4c5")
 
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="background/StaticBody2D"]
-position = Vector2(346.9632, -180.62228)
+position = Vector2(346.95795, -179.83588)
 rotation = -1.5638974
 shape = SubResource("RectangleShape2D_splo0")
 
-[node name="personaje" parent="." instance=ExtResource("2_i7s6n")]
-position = Vector2(282, 513)
+[node name="personaje" parent="background" instance=ExtResource("2_i7s6n")]
+position = Vector2(-401.91904, 295.98135)
+scale = Vector2(1.3397301, 1.5912975)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="background"]
+position = Vector2(3.0517578e-05, 1.5913086)
+navigation_polygon = SubResource("NavigationPolygon_xehqc")
+
+[node name="enemigo animado2" parent="background" instance=ExtResource("3_xehqc")]
+position = Vector2(-4.019165, 194.1383)
+scale = Vector2(1.3397301, 1.5912975)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_splo0")
+volume_db = -10.0
+autoplay = true

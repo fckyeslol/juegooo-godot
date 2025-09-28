@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8ixks6irxc7k"]
+
+[ext_resource type="Script" uid="uid://bjl4sttxjwyw7" path="res://menu.gd" id="1_mae5d"]
+[ext_resource type="Texture2D" uid="uid://7d1l7ffb7jcs" path="res://Gemini_Generated_Image_vjv22vjv22vjv22v.png" id="2_4hy44"]
+[ext_resource type="FontFile" uid="uid://do5rfbhiiow3h" path="res://Pixeboy-z8XGD.ttf" id="3_ytr4m"]
+[ext_resource type="AudioStream" uid="uid://cvrpvdkupft5c" path="res://nightcall-_2_-_1_.mp3" id="4_4hy44"]
+
+[node name="menu" type="Node2D"]
+scale = Vector2(1.5496745, 1.5046506)
+script = ExtResource("1_mae5d")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(578, 323.5)
+scale = Vector2(0.8953125, 0.80375)
+texture = ExtResource("2_4hy44")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 441.38303
+offset_top = 330.30927
+offset_right = 675.38306
+offset_bottom = 422.30927
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ytr4m")
+theme_override_font_sizes/font_size = 60
+text = "PLAY"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ytr4m")
+theme_override_font_sizes/font_size = 60
+text = "EXIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4hy44")
+volume_db = -23.867
+pitch_scale = 1.62
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4hy44")
+volume_db = -23.867
+pitch_scale = 1.62
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

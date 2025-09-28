@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx5rfa8oab21d"]
+
+[ext_resource type="Texture2D" uid="uid://buo3xg3iavcmh" path="res://WhatsApp-Image-2025-09-28-at-2.19.41-PM.png" id="1_a8lcc"]
+
+[node name="youwin" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(918, 515)
+scale = Vector2(2.3025, 2.2711112)
+texture = ExtResource("1_a8lcc")

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnkhctnkx1ble"]
+
+[ext_resource type="Texture2D" uid="uid://baxitjit2bsh4" path="res://personajes/escopeta/sprite_0.png" id="1_dwrae"]
+[ext_resource type="Script" uid="uid://so8tklgv2qp3" path="res://disparando_escopeta.gd" id="1_v7p8t"]
+[ext_resource type="Texture2D" uid="uid://dh7wyu5310cee" path="res://personajes/escopeta/sprite_1.png" id="2_v7p8t"]
+[ext_resource type="Texture2D" uid="uid://puasvvt13xda" path="res://personajes/escopeta/sprite_2.png" id="3_lt6n2"]
+[ext_resource type="Texture2D" uid="uid://oqwif1uxpblo" path="res://personajes/escopeta/sprite_3.png" id="4_ppuqm"]
+[ext_resource type="Texture2D" uid="uid://cqpdg3sqfoqc6" path="res://personajes/escopeta/sprite_4.png" id="5_j2gbt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7wbli"]
+radius = 34.928436
+height = 185.03252
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fl7b8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dwrae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v7p8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lt6n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ppuqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j2gbt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="disparando ESCOPETA" type="CharacterBody2D"]
+script = ExtResource("1_v7p8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-75, 8.999998)
+rotation = 1.1564649
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_7wbli")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+position = Vector2(21.954884, -72.27713)
+rotation = -1.1564649
+scale = Vector2(1.0000001, 1.0000001)
+sprite_frames = SubResource("SpriteFrames_fl7b8")
+frame_progress = 0.08601351
+
+[node name="SpawnPoint" type="Node2D" parent="."]

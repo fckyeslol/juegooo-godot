@@ -1,0 +1,106 @@
+[gd_scene load_steps=20 format=3 uid="uid://b54fiaetk82d1"]
+
+[ext_resource type="Script" uid="uid://dslqt3ihuqxxc" path="res://character_body_2d.gd" id="1_f8plh"]
+[ext_resource type="PackedScene" uid="uid://byvtcp7s55e71" path="res://Bullet.tscn" id="2_h755h"]
+[ext_resource type="Texture2D" uid="uid://bji6csbsdpb2q" path="res://enemigo/sprite_0.png" id="2_hujys"]
+[ext_resource type="Texture2D" uid="uid://b0fr3ncarkuad" path="res://enemigo/sprite_1.png" id="3_585sv"]
+[ext_resource type="Texture2D" uid="uid://bwm2dl4tcbvye" path="res://image-removebg-preview (11).png" id="3_pyv6t"]
+[ext_resource type="Texture2D" uid="uid://do02w4wwfn3qc" path="res://enemigo/sprite_2.png" id="4_q2cvw"]
+[ext_resource type="Texture2D" uid="uid://du7sv63025l0m" path="res://enemigo/sprite_3.png" id="5_x7w2g"]
+[ext_resource type="Texture2D" uid="uid://c1jxhghajjpu4" path="res://enemigo/sprite_4.png" id="6_wiotw"]
+[ext_resource type="Texture2D" uid="uid://bju8btibix0b" path="res://enemigo/sprite_5.png" id="7_pcrpr"]
+[ext_resource type="Texture2D" uid="uid://k5mcgqm6ulff" path="res://enemigo/sprite_6.png" id="8_qhqe6"]
+[ext_resource type="Texture2D" uid="uid://2fpnhg0sv4dt" path="res://escenas/sprite_0.png" id="9_ut7ew"]
+[ext_resource type="Script" uid="uid://b3mygl8nsvb4" path="res://camera_2d.gd" id="9_wyluk"]
+[ext_resource type="Texture2D" uid="uid://cd4lbris8f7nk" path="res://escenas/sprite_1.png" id="10_cyfcw"]
+[ext_resource type="Texture2D" uid="uid://dtiegn3jipj71" path="res://escenas/sprite_2.png" id="11_baaeu"]
+[ext_resource type="Texture2D" uid="uid://cc1igsrqrcpnn" path="res://escenas/sprite_3.png" id="12_d6vrp"]
+[ext_resource type="Texture2D" uid="uid://c3728f3dly0xn" path="res://escenas/sprite_4.png" id="13_f0sqd"]
+[ext_resource type="PackedScene" uid="uid://chas25s0b7lac" path="res://barra de vida/barra de vida.tscn" id="17_wyluk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8vmr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pyv6t")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hujys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_585sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q2cvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x7w2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wiotw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pcrpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qhqe6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ut7ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cyfcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_baaeu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_d6vrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f0sqd")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vopn2"]
+radius = 18.0
+height = 38.418697
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_f8plh")
+bullet_scene = ExtResource("2_h755h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["player"]]
+position = Vector2(0.9999981, -1.0000004)
+scale = Vector2(0.22832951, 0.2551879)
+sprite_frames = SubResource("SpriteFrames_n8vmr")
+speed_scale = 0.64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -7.1525574e-07)
+rotation = 0.89437675
+shape = SubResource("CapsuleShape2D_vopn2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(3, 3)
+script = ExtResource("9_wyluk")
+
+[node name="BarraDeVida" parent="." instance=ExtResource("17_wyluk")]
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 19.0
+offset_bottom = -30.0
