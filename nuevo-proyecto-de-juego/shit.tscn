@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://1bn8arbawjgp"]
+
+[ext_resource type="Script" uid="uid://d2owwidcrwq0h" path="res://shit.gd" id="1_mh3es"]
+[ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://icon.svg" id="1_pvu67"]
+[ext_resource type="FontFile" uid="uid://do5rfbhiiow3h" path="res://Pixeboy-z8XGD.ttf" id="3_ykx3s"]
+
+[node name="Shit" type="Node2D"]
+script = ExtResource("1_mh3es")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(444, 263)
+texture = ExtResource("1_pvu67")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ykx3s")
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
